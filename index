@@ -144,8 +144,8 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      - 企鹅 
-      - 论坛的新加坡 
+      - 企鹅美国
+      - 新加坡 
       - DIRECT
     
       
