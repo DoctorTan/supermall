@@ -118,7 +118,7 @@ proxies:
     server: 153.3.236.22
     <<: *baidu
 
-  - name: "企鹅"
+  - name: 企鹅美国
     type: hysteria2
     server: 142.171.45.251
     port: 4333
@@ -129,7 +129,7 @@ proxies:
     down: "200 Mbps" # 若不写单位，默认为 Mbps
  
   
-  - name: 论坛的新加坡
+  - name: 新加坡
     type: hysteria2
     server: fq.ewin.eu.org
     port: 10186
