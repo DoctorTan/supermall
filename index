@@ -1,9 +1,8 @@
-# 混合代理端口 http(s)+socks
-# mixed-port: 7890
-# allow-lan: true   #允许局域网连接
+mixed-port: 7890
+allow-lan: true   #允许局域网连接
 bind-address: "*"
 mode: rule
-geodata-mode: true
+# geodata-mode: true
 log-level: info
 ipv6: false
 socks-port: 1080
