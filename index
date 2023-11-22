@@ -64,6 +64,16 @@ proxy-providers:
       enable: true
       interval: 7200
       url: http://www.gstatic.com/generate_204
+  机4:
+    type: http
+   # 仅仅需要改url替换成你的订阅地址,其他不要改
+    url: https://yfjc.cfd/api/v1/client/subscribe?token=789f43d8308911534b8d2c59dc024dbe
+    interval: 14400
+    path: ./provider209.yaml
+    health-check:
+      enable: true
+      interval: 7200
+      url: http://www.gstatic.com/generate_204
 
 # 百度配置文件
 baidu: &baidu
@@ -145,6 +155,7 @@ proxy-groups:
       - 机1
       - 机2
       - 机3
+      - 机4
 
 # 多久测试一次最快的节点,单位为秒,不想频繁换ip就把下面的删掉
     interval: 3000
