@@ -1,8 +1,9 @@
-mixed-port: 7890
-allow-lan: true   #允许局域网连接
+# 混合代理端口 http(s)+socks
+# mixed-port: 7890
+# allow-lan: true   #允许局域网连接
 bind-address: "*"
 mode: rule
-# geodata-mode: true
+geodata-mode: true
 log-level: info
 ipv6: false
 socks-port: 1080
@@ -117,7 +118,7 @@ proxies:
     server: 153.3.236.22
     <<: *baidu
 
-  - name: 企鹅美国
+  - name: 🇺🇸洛杉矶
     type: hysteria2
     server: 142.171.45.251
     port: 4333
@@ -128,13 +129,24 @@ proxies:
     down: "200 Mbps" # 若不写单位，默认为 Mbps
  
   
-  - name: 新加坡
+  - name: 🇸🇬新加坡备用
     type: hysteria2
     server: fq.ewin.eu.org
     port: 10186
     password: zewinz
     sni: www.bing.com
     skip-cert-verify: true
+
+  - name: 🇺🇸洛杉矶备用                            #可自定义名称
+    type: hysteria2 
+    server: xui.oortaka.top                            #解析的域名
+    port: 49088                                        #自定义的端口
+    password: 93757c7d-ee66-4be9-ac6b-78e848847d62                                   #自定义的密码
+    alpn:
+      - h3
+    sni: xui.oortaka.top                               #sni域名，与上面server地址一致 
+    skip-cert-verify: false
+    fast-open: true   
 
 
 
@@ -143,8 +155,9 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      - 企鹅美国
-      - 新加坡 
+      - 🇺🇸洛杉矶 
+      - 🇺🇸洛杉矶备用 
+      - 🇸🇬新加坡备用 
       - DIRECT
     
       
