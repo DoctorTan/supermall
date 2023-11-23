@@ -74,6 +74,16 @@ proxy-providers:
       enable: true
       interval: 7200
       url: http://www.gstatic.com/generate_204
+  机5:
+    type: http
+   # 仅仅需要改url替换成你的订阅地址,其他不要改
+    url: https://sub3.smallstrawberry.com/api/v1/client/subscribe?token=bb5e44cd69a5c10c283b23d351414aea
+    interval: 14400
+    path: ./provider210.yaml
+    health-check:
+      enable: true
+      interval: 7200
+      url: http://www.gstatic.com/generate_204
 
 # 百度配置文件
 baidu: &baidu
@@ -155,9 +165,9 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      - 🇺🇸洛杉矶 
-      - 🇺🇸洛杉矶备用 
-      - 🇸🇬新加坡备用 
+      - 🇺🇸美国 
+      - 🇺🇸美国备用 
+      - 🇸🇬亚洲备用 
       - DIRECT
     
       
@@ -168,6 +178,7 @@ proxy-groups:
       - 机2
       - 机3
       - 机4
+      - 机5
 
 # 多久测试一次最快的节点,单位为秒,不想频繁换ip就把下面的删掉
     interval: 3000
