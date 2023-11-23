@@ -128,7 +128,7 @@ proxies:
     server: 153.3.236.22
     <<: *baidu
 
-  - name: 🇺🇸美国
+  - name: 🇺🇸洛杉矶
     type: hysteria2
     server: 142.171.45.251
     port: 4333
@@ -139,7 +139,7 @@ proxies:
     down: "200 Mbps" # 若不写单位，默认为 Mbps
  
   
-  - name: 🇸🇬亚洲备用
+  - name: 🇸🇬新加坡备用
     type: hysteria2
     server: fq.ewin.eu.org
     port: 10186
@@ -147,7 +147,7 @@ proxies:
     sni: www.bing.com
     skip-cert-verify: true
 
-  - name: 🇺🇸美国备用                            #可自定义名称
+  - name: 🇺🇸洛杉矶备用                            #可自定义名称
     type: hysteria2 
     server: xui.oortaka.top                            #解析的域名
     port: 49088                                        #自定义的端口
@@ -165,9 +165,9 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      - 🇺🇸美国 
-      - 🇺🇸美国备用 
-      - 🇸🇬亚洲备用 
+      - 🇺🇸洛杉矶 
+      - 🇺🇸洛杉矶备用 
+      - 🇸🇬新加坡备用 
       - DIRECT
     
       
