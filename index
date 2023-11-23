@@ -128,7 +128,7 @@ proxies:
     server: 153.3.236.22
     <<: *baidu
 
-  - name: 🇺🇸洛杉矶
+  - name: 🇺🇸洛杉矶(明年8月)
     type: hysteria2
     server: 142.171.45.251
     port: 4333
@@ -139,7 +139,7 @@ proxies:
     down: "200 Mbps" # 若不写单位，默认为 Mbps
  
   
-  - name: 🇸🇬新加坡备用
+  - name: 🇸🇬新加坡备用(不知期限)
     type: hysteria2
     server: fq.ewin.eu.org
     port: 10186
@@ -147,7 +147,7 @@ proxies:
     sni: www.bing.com
     skip-cert-verify: true
 
-  - name: 🇺🇸洛杉矶备用                            #可自定义名称
+  - name: 🇺🇸洛杉矶备用(明年7月)                            #可自定义名称
     type: hysteria2 
     server: xui.oortaka.top                            #解析的域名
     port: 49088                                        #自定义的端口
@@ -157,6 +157,19 @@ proxies:
     sni: xui.oortaka.top                               #sni域名，与上面server地址一致 
     skip-cert-verify: false
     fast-open: true   
+
+  - name: 🇺🇸洛杉矶备用(一个月)
+    type: vless
+    server: 141.11.211.144
+    port: 51939      
+    uuid: 889a2e21-acb9-4a9f-9e3b-05af31f1c2e5
+    tls: false
+    client-fingerprint: chrome
+    tfo: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts: 
+      path: /
  
  
 
@@ -167,9 +180,10 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      - 🇺🇸洛杉矶 
-      - 🇺🇸洛杉矶备用 
-      - 🇸🇬新加坡备用 
+      - 🇺🇸洛杉矶(明年8月) 
+      - 🇺🇸洛杉矶备用(明年7月)
+      - 🇺🇸洛杉矶备用(一个月)
+      - 🇸🇬新加坡备用(不知期限)      
       - DIRECT
     
       
