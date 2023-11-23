@@ -157,15 +157,6 @@ proxies:
     sni: xui.oortaka.top                               #sni域名，与上面server地址一致 
     skip-cert-verify: false
     fast-open: true   
-  
-  - name:  洛杉矶一个月                            #可自定义名称
-    type: vless
-    server: 141.11.211.144                     #解析的域名或者优选域名IP
-    port: 51939                                       #自定义的端口
-    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
-    udp: true
-    tls: false
-    network: ws
  
  
 
@@ -179,7 +170,6 @@ proxy-groups:
       - 🇺🇸洛杉矶 
       - 🇺🇸洛杉矶备用 
       - 🇸🇬新加坡备用 
-      - 洛杉矶一个月
       - DIRECT
     
       
