@@ -34,46 +34,6 @@ proxy-providers:
       enable: true
       interval: 7200
       url: http://www.gstatic.com/generate_204
-  机1:
-    type: http
-   # 仅仅需要改url替换成你的订阅地址,其他不要改
-    url: https://sub.id9.cc/sub?target=clash&url=trojan%3A%2F%2FFc8uRbuKj0%40xui.oortaka.top%3A53033%3Ftype%3Dtcp%26security%3Dtls%26fp%3D%26alpn%3Dhttp%252F1.1%252Ch2%23%25E7%258E%258B%25E6%25B5%25B7%25E5%2586%259B&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini
-    interval: 14400
-    path: ./provider201.yaml
-    health-check:
-      enable: true
-      interval: 7200
-      url: http://www.gstatic.com/generate_204
-  机2:
-    type: http
-   # 仅仅需要改url替换成你的订阅地址,其他不要改
-    url: https://v1.eflink.xyz/api/v1/client/subscribe?token=fd8834b70ed05f73ca5b600dc4cd129f
-    interval: 14400
-    path: ./provider202.yaml
-    health-check:
-      enable: true
-      interval: 7200
-      url: http://www.gstatic.com/generate_204
-  机3:
-    type: http
-   # 仅仅需要改url替换成你的订阅地址,其他不要改
-    url: https://yh.acyun.tk/api/v1/client/subscribe?token=64312aba8cfbaa38db51f526ad2a2ee8
-    interval: 14400
-    path: ./provider203.yaml
-    health-check:
-      enable: true
-      interval: 7200
-      url: http://www.gstatic.com/generate_204
-  机4:
-    type: http
-   # 仅仅需要改url替换成你的订阅地址,其他不要改
-    url: https://yfjc.cfd/api/v1/client/subscribe?token=789f43d8308911534b8d2c59dc024dbe
-    interval: 14400
-    path: ./provider209.yaml
-    health-check:
-      enable: true
-      interval: 7200
-      url: http://www.gstatic.com/generate_204
   机5:
     type: http
    # 仅仅需要改url替换成你的订阅地址,其他不要改
@@ -104,6 +64,10 @@ proxies:
 #😊南京联 153.3.236.22 免
 # 解析地址 https://site.ip138.com/cloudnproxy.n.shifen.com/
 # 输入cloudnproxy.n.shifen.com即可查询, 自己测试免不免
+  - name: "自动"
+    server: 'cloudnproxy.n.shifen.com'
+    <<: *baidu
+
   - name: "百度直连-广州电信"
     server: 14.215.179.244
     <<: *baidu
@@ -125,7 +89,7 @@ proxies:
     <<: *baidu
 
   - name: "百度直连-南京联通"
-    server: 153.3.236.22
+    server: 153.3.237.117
     <<: *baidu
 
   - name: 🇺🇸洛杉矶(明年8月)
@@ -136,16 +100,8 @@ proxies:
     skip-cert-verify: true
     password: 1234567
     up: "30 Mbps" # 若不写单位，默认为 Mbps
-    down: "200 Mbps" # 若不写单位，默认为 Mbps
- 
+    down: "200 Mbps" # 若不写单位，默认为 Mbps 
   
-  - name: 🇸🇬新加坡备用(不知期限)
-    type: hysteria2
-    server: fq.ewin.eu.org
-    port: 10186
-    password: zewinz
-    sni: www.bing.com
-    skip-cert-verify: true
 
   - name: 🇺🇸洛杉矶备用(明年7月)                            #可自定义名称
     type: hysteria2 
@@ -182,18 +138,13 @@ proxy-groups:
     proxies:
       - 🇺🇸洛杉矶(明年8月) 
       - 🇺🇸洛杉矶备用(明年7月)
-      - 🇺🇸洛杉矶备用(一个月)
-      - 🇸🇬新加坡备用(不知期限)      
+      - 🇺🇸洛杉矶备用(一个月)  
       - DIRECT
     
       
 # 如果想自动选择就把url-test改为select
     use: 
       - 机0
-      - 机1
-      - 机2
-      - 机3
-      - 机4
       - 机5
 
 # 多久测试一次最快的节点,单位为秒,不想频繁换ip就把下面的删掉
@@ -202,6 +153,7 @@ proxy-groups:
     type: select 
     proxies:
       - DIRECT
+      - 自动
       - 百度直连-广州电信
       - 百度直连-南京电信1
       - 百度直连-南京电信2
