@@ -126,7 +126,7 @@ proxies:
     <<: *baidu
   
   - {name: 论坛英国, server: 23.162.136.238, port: 21801, type: vless, uuid: 7b5af11e-01c4-42e9-b461-ce22b774978c, tls: true, client-fingerprint: chrome, reality-opts: {public-key: se78IhzNwFxKHp-rn0IiyFCr1PoEN18SGitJzgCNXns, short-id: 6ba85179e30d4fc2}, tfo: false, servername: itunes.apple.com, flow: xtls-rprx-vision, skip-cert-verify: false}
-
+  - {name: 论坛cf, server: www.udacity.com, port: 80, type: vless, uuid: 15257580-2329-4e85-b8f5-4faf0203480d, tls: false, client-fingerprint: randomized, tfo: false, servername: worker-vlessgmail.dyj1564234648.workers.dev, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: worker-vlessgmail.dyj1564234648.workers.dev}}}
   - name: "百度直连-南京联通"
     server: 153.3.236.22
     <<: *baidu
@@ -180,6 +180,7 @@ proxy-groups:
       - 🇺🇸洛杉矶备用(明年7月)
       - 🇺🇸洛杉矶备用(一个月)   
       - 论坛英国    
+      - 论坛cf   
       - DIRECT
     
       
