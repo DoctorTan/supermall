@@ -124,12 +124,37 @@ proxies:
   - name: "百度直连-苏州联通"
     server: 157.0.148.53
     <<: *baidu
-  
-  - {name: 论坛英国, server: 23.162.136.238, port: 21801, type: vless, uuid: 7b5af11e-01c4-42e9-b461-ce22b774978c, tls: true, client-fingerprint: chrome, reality-opts: {public-key: se78IhzNwFxKHp-rn0IiyFCr1PoEN18SGitJzgCNXns, short-id: 6ba85179e30d4fc2}, tfo: false, servername: itunes.apple.com, flow: xtls-rprx-vision, skip-cert-verify: false}
-  - {name: 论坛cf, server: www.udacity.com, port: 80, type: vless, uuid: 15257580-2329-4e85-b8f5-4faf0203480d, tls: false, client-fingerprint: randomized, tfo: false, servername: worker-vlessgmail.dyj1564234648.workers.dev, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: worker-vlessgmail.dyj1564234648.workers.dev}}}
+
   - name: "百度直连-南京联通"
     server: 153.3.236.22
     <<: *baidu
+  
+  - {name: 论坛英国, server: 23.162.136.238, port: 21801, type: vless, uuid: 7b5af11e-01c4-42e9-b461-ce22b774978c, tls: true, client-fingerprint: chrome, reality-opts: {public-key: se78IhzNwFxKHp-rn0IiyFCr1PoEN18SGitJzgCNXns, short-id: 6ba85179e30d4fc2}, tfo: false, servername: itunes.apple.com, flow: xtls-rprx-vision, skip-cert-verify: false}
+  - {name: 论坛cf, server: www.udacity.com, port: 80, type: vless, uuid: 15257580-2329-4e85-b8f5-4faf0203480d, tls: false, client-fingerprint: randomized, tfo: false, servername: worker-vlessgmail.dyj1564234648.workers.dev, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: worker-vlessgmail.dyj1564234648.workers.dev}}}
+  - {name: 🇭🇰 香港1, server: yyjc-hk.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-hk.shaniugpt.top}}}
+  - {name: 🇭🇰 香港2, server: cloudflare-cmi1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-hk.shaniugpt.top}}}
+  - {name: 🇺🇸 美国1, server: yyjc-us1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-us1.shaniugpt.top}}}
+  - {name: 🇺🇸 美国2, server: cloudflare-cmi1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-us1.shaniugpt.top}}}
+  - {name: 🇰🇷 韩国1, server: yyjc-kr1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-kr1.shaniugpt.top}}}
+  - {name: 🇰🇷 韩国2, server: cloudflare-cmi1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-kr1.shaniugpt.top}}}
+  - {name: 🇬🇧 英国1, server: yyjc-uk1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-uk1.shaniugpt.top}}}
+  - {name: 🇬🇧 英国2, server: cloudflare-cmi1.shaniugpt.top, port: 8080, type: vmess, uuid: f085e985-6759-4f98-b427-efb8c29745fc, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: yyjc-uk1.shaniugpt.top}}}
+  - {name: "🇯🇵 [1x] CDN节点 日本 01", server: 162.159.134.13, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnjp.tgbpjcxyz.shop}}}
+  - {name: "🇯🇵 [1x] CDN节点 日本 02", server: 172.67.121.220, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnjp.tgbpjcxyz.shop}}}
+  - {name: "🇯🇵 [1x] CDN节点 日本 03", server: 198.41.223.91, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnjp.tgbpjcxyz.shop}}}
+  - {name: "🇯🇵 [1x] CDN节点 日本 04", server: 198.41.223.57, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnjp.tgbpjcxyz.shop}}}
+  - {name: "🇯🇵 [1x] CDN节点 日本 05", server: 198.41.221.140, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnjp.tgbpjcxyz.shop}}}
+  - {name: "🇸🇬 [1x] CDN节点 新加坡 01", server: 198.41.223.75, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnsg.tgbpjcxyz.shop}}}
+  - {name: "🇸🇬 [1x] CDN节点 新加坡 02", server: 162.159.241.182, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnsg.tgbpjcxyz.shop}}}
+  - {name: "🇸🇬 [1x] CDN节点 新加坡 03", server: 198.41.223.91, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnsg.tgbpjcxyz.shop}}}
+  - {name: "🇸🇬 [1x] CDN节点 新加坡 04", server: 162.159.137.202, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnsg.tgbpjcxyz.shop}}}
+  - {name: "🇸🇬 [1x] CDN节点 新加坡 05", server: 198.41.223.34, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: cdnsg.tgbpjcxyz.shop}}}
+  - {name: "🇺🇸 [1x] CDN节点 美国 01", server: 198.41.223.97, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: uscdn.tgbpjcxyz.shop}}}
+  - {name: "🇺🇸 [1x] CDN节点 美国 02", server: 172.64.85.98, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: uscdn.tgbpjcxyz.shop}}}
+  - {name: "🇺🇸 [1x] CDN节点 美国 03", server: 198.41.223.57, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: uscdn.tgbpjcxyz.shop}}}
+  - {name: "🇺🇸 [1x] CDN节点 美国 04", server: 198.41.223.91, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: uscdn.tgbpjcxyz.shop}}}
+  - {name: "🇺🇸 [1x] CDN节点 美国 05", server: 198.41.223.72, port: 80, type: vmess, uuid: a5548323-e5b2-4e96-bb29-ff80fac832c5, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: uscdn.tgbpjcxyz.shop}}}
+
 
   - name: 🇺🇸洛杉矶(明年8月)
     type: hysteria2
@@ -151,7 +176,189 @@ proxies:
       - h3
     sni: xui.oortaka.top                               #sni域名，与上面server地址一致 
     skip-cert-verify: false
-    fast-open: true   
+    fast-open: true  
+# hy2://dongtaiwang.com@108.181.22.155:12881?insecure=1&sni=www.bing.com
+  - name: 🇺🇸洛杉矶备用1                       #可自定义名称
+    type: hysteria2 
+    server: 108.181.22.155                         #解析的域名
+    port: 12881                                     #自定义的端口
+    password: dongtaiwang.com                             #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 🇺🇸洛杉矶备用2                       #可自定义名称
+    type: hysteria2 
+    server: 167.160.90.252                       #解析的域名
+    port: 63530                                     #自定义的端口
+    password: dongtaiwang.com                             #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 新加坡歇斯底里1                     #可自定义名称
+    type: hysteria2 
+    server: sg1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                             #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 新加坡歇斯底里2                     #可自定义名称
+    type: hysteria2 
+    server: sg3.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 新加坡歇斯底里3                     #可自定义名称
+    type: hysteria2 
+    server: sg4.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 新加坡歇斯底里4                     #可自定义名称
+    type: hysteria2 
+    server: sg5.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 新加坡歇斯底里5                     #可自定义名称
+    type: hysteria2 
+    server: sg6.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+  
+
+  - name: 韩国歇斯底里1                     #可自定义名称
+    type: hysteria2 
+    server: kr1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 韩国歇斯底里2                     #可自定义名称
+    type: hysteria2 
+    server: kr2.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 日本歇斯底里1                     #可自定义名称
+    type: hysteria2 
+    server: jp1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+  
+
+  - name: 日本歇斯底里2                     #可自定义名称
+    type: hysteria2 
+    server: jp2.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+
+  - name: 日本歇斯底里3                #可自定义名称
+    type: hysteria2 
+    server: jp4.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 澳洲歇斯底里                #可自定义名称
+    type: hysteria2 
+    server: au1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 德国歇斯底里                #可自定义名称
+    type: hysteria2 
+    server: de1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 英国歇斯底里                #可自定义名称
+    type: hysteria2 
+    server: gb1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 香港歇斯底里1                #可自定义名称
+    type: hysteria2 
+    server: hk1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 香港歇斯底里2                #可自定义名称
+    type: hysteria2 
+    server: hk2.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 香港歇斯底里3                #可自定义名称
+    type: hysteria2 
+    server: hk3.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+ 
+
+  - name: 法国歇斯底里               #可自定义名
+    type: hysteria2 
+    server: fr1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 西班牙歇斯底里               #可自定义名
+    type: hysteria2 
+    server: es1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 巴西歇斯底里               #可自定义名
+    type: hysteria2 
+    server: br1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+
+  - name: 加拿大歇斯底里               #可自定义名
+    type: hysteria2 
+    server: ca1.xiaoliyu.cyou                       #解析的域名
+    port: 4433                                     #自定义的端口
+    password: d8ea8b28-8fc2-484f-b780-59521567c4bc                           #自定义的密码
+    sni: www.bing.com                           #sni域名，与上面server地址一致 
+    skip-cert-verify: true
+  
 
   - name: 🇺🇸洛杉矶备用(一个月)
     type: vless
@@ -168,6 +375,8 @@ proxies:
 
  
  
+ 
+ 
 
 
 
@@ -178,9 +387,53 @@ proxy-groups:
     proxies:
       - 🇺🇸洛杉矶(明年8月) 
       - 🇺🇸洛杉矶备用(明年7月)
-      - 🇺🇸洛杉矶备用(一个月)   
-      - 论坛英国    
-      - 论坛cf   
+      - 🇺🇸洛杉矶备用(一个月)        
+      - 🇺🇸洛杉矶备用1
+      - 🇺🇸洛杉矶备用2
+      - 论坛英国  
+      - 新加坡歇斯底里1  
+      - 新加坡歇斯底里2  
+      - 新加坡歇斯底里3  
+      - 新加坡歇斯底里4  
+      - 新加坡歇斯底里5  
+      - 韩国歇斯底里1   
+      - 韩国歇斯底里2   
+      - 日本歇斯底里1   
+      - 日本歇斯底里2   
+      - 日本歇斯底里3   
+      - 澳洲歇斯底里
+      - 德国歇斯底里   
+      - 英国歇斯底里
+      - 香港歇斯底里1   
+      - 香港歇斯底里2   
+      - 香港歇斯底里3   
+      - 法国歇斯底里   
+      - 西班牙歇斯底里   
+      - 巴西歇斯底里  
+      - 加拿大歇斯底里  
+      - 论坛cf 
+      - 🇭🇰 香港2
+      - 🇺🇸 美国1
+      - 🇺🇸 美国2
+      - 🇰🇷 韩国1
+      - 🇰🇷 韩国2
+      - 🇬🇧 英国1
+      - 🇬🇧 英国2
+      - 🇯🇵 [1x] CDN节点 日本 01
+      - 🇯🇵 [1x] CDN节点 日本 02
+      - 🇯🇵 [1x] CDN节点 日本 03
+      - 🇯🇵 [1x] CDN节点 日本 04
+      - 🇯🇵 [1x] CDN节点 日本 05
+      - 🇸🇬 [1x] CDN节点 新加坡 01
+      - 🇸🇬 [1x] CDN节点 新加坡 02
+      - 🇸🇬 [1x] CDN节点 新加坡 03
+      - 🇸🇬 [1x] CDN节点 新加坡 04
+      - 🇸🇬 [1x] CDN节点 新加坡 05
+      - 🇺🇸 [1x] CDN节点 美国 01
+      - 🇺🇸 [1x] CDN节点 美国 02
+      - 🇺🇸 [1x] CDN节点 美国 03
+      - 🇺🇸 [1x] CDN节点 美国 04
+      - 🇺🇸 [1x] CDN节点 美国 05  
       - DIRECT
     
       
@@ -188,9 +441,9 @@ proxy-groups:
     use: 
       - 机0      
       - 机1
-      - 机2
-      - 机3
       - 机4
+      - 机3
+      - 机2
       - 机5
       
 
