@@ -186,7 +186,268 @@ proxies:
     ws-opts: 
       path: /
 
- 
+  - name:  🇺🇳自动优选                           #可自定义名称
+    type: vless
+    server: japan.com                          #解析的域名或者优选域名IP
+    port: 2096                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（vless-reality-vision节点）
+  - name:  🇺🇸X-UI美国01               #可自定义名称
+    type: vless
+    server: xui.oortaka.top                             #解析的域名或IP
+    port: 51157                                 #自定义的端口
+    uuid: 18575736-5faf-4ac8-b8e3-e0ca1cb76bb4   #自定义的uuid
+    network: tcp
+    udp: true
+    tls: true
+    flow: xtls-rprx-vision
+    servername: www.yahoo.com                   #自定义的第三方域名
+    reality-opts: 
+      public-key: PxTQR8wDXvlYbnwDq60ieOIr0jXPxpYCGYSH0DFUAUs    #自定义的public-key
+      short-id: 545cbdb8                        #自定义的short-id
+    client-fingerprint: chrome                  #自定义的浏览器指纹
+
+  #==============================（vless-reality-grpc节点）
+  - name:  🇺🇸X-UI美国04                  #可自定义名称
+    type: vless
+    server: xui.oortaka.top                               #解析的域名或IP
+    port: 56543                                   #自定义的端口
+    uuid: f0999f9b-9bdd-4c52-ba38-1fc85eb4e705    #自定义的uuid
+    network: grpc
+    tls: true
+    udp: true
+    flow:
+    client-fingerprint: chrome                    #自定义的浏览器指纹
+    servername: www.yahoo.com                     #自定义的第三方域名
+    grpc-opts:
+      grpc-service-name: "Taka"                  #" "内自定义的字符
+    reality-opts:
+      public-key: C0kV927RstxIc_XVN4d3eAu96PqURwdtWMaJnT6MpDs    #自定义的public-key
+      short-id: 1f52d877                          #自定义的short-id
+
+  #==============================（vless-xtls-rprx-vision节点）
+  - name:  🇺🇸X-UI美国02              #可自定义名称
+    type: vless
+    server: xui.oortaka.top                      #解析的域名
+    port: 49656                                  #自定义的端口
+    uuid: 644d7fed-23ee-4d14-9a22-25c2c46bea80    #自定义的uuid
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+
+                     #host域名，与上面的servername一致
+
+  #==============================（vless-ws-tls节点）
+  - name:  🇳🇱荷兰                           #可自定义名称
+    type: vless
+    server: 158.101.212.186                          #解析的域名或者优选域名IP
+    port: 8443                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（vless-ws-tls节点）
+  - name:  🇨🇦加拿大                           #可自定义名称
+    type: vless
+    server: 192.18.145.19                          #解析的域名或者优选域名IP
+    port: 2096                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（vless-ws-tls节点）
+  - name:  🇮🇱以色列                           #可自定义名称
+    type: vless
+    server: 129.159.152.163                          #解析的域名或者优选域名IP
+    #server: 129.159.152.163
+    port: 2053                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+                    #host域名，与上面的servername一致
+                   #host域名，与上面的servername一致
+
+  #==============================（vless-ws-tls节点）
+  - name:  🇸🇬新加坡                           #可自定义名称
+    type: vless
+    server: 158.178.242.56                          #解析的域名或者优选域名IP
+    port: 2083                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（vless-ws-tls节点）
+  - name:  🇩🇪德国                           #可自定义名称
+    type: vless
+    server: 130.61.107.238                          #解析的域名或者优选域名IP
+    port: 8443                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（vless-ws-tls节点）
+  - name:  🇰🇷韩国                           #可自定义名称
+    type: vless
+    server: 132.145.80.52                          #解析的域名或者优选域名IP
+    port: 2096                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+                    #host域名，与上面的servername一致
+
+  #==============================（vmess-ws-tls节点）
+  - name:  🇺🇸X-UI美国11                           #可自定义名称
+    type: vmess
+    server: xui.oortaka.top                          #解析的域名或者优选域名IP
+    port: 38068                                      #自定义的端口
+    uuid: 2102cc72-9b20-4054-ebd8-74626c6e57f4       #自定义的uuid
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    network: ws
+    servername: xui.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #自定义的path路径
+      headers:
+        Host: xui.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（vmess-ws节点）
+  - name:  🇺🇸X-UI美国10                               #可自定义名称
+    type: vmess
+    server: xui.oortaka.top                          #解析的域名或者优选域名IP
+    port: 39527                                       #自定义的端口
+    uuid: 1f5b6c22-d049-4139-9ba4-7451b27ac8a2       #自定义的uuid
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    network: tcp
+    servername: xui.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: xui.oortaka.top                       #host域名，与上面的servername一致
+
+  #==============================（trojan-tcp-tls节点）
+  - name:  🇺🇸X-UI美国05                         #可自定义名称
+    type: trojan
+    server: xui.oortaka.top                          #解析的域名
+    port: 48841                                      #自定义的端口
+    password: QhNz6ukBrK                              #自定义的密码
+    client-fingerprint: chrome
+    udp: true
+    sni: xui.oortaka.top                             #sni域名，与上面server地址一致
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+
+    #==============================（trojan-tcp-tls节点）
+  - name:  🇺🇸X-UI美国07                         #可自定义名称
+    type: trojan
+    server: xui.oortaka.top                          #解析的域名
+    port: 43969                                      #自定义的端口
+    password: KLfBvIgKdM                              #自定义的密码
+    client-fingerprint: chrome
+    cipher: auto
+    udp: true
+    tls: true
+    network: ws
+    sni: xui.oortaka.top                             #sni域名，与上面server地址一致
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: false
+
+  #==============================（	shadowsocks-tcp-tls节点？SS好像不能开TLS）
+  - name:  🇺🇸X-UI美国08                         #可自定义名称
+    type: ss
+    server: xui.oortaka.top
+    port: 15192
+    udp: true
+    cipher: aes-256-gcm
+    password: SWNpSmlZT21WOWp0OUxSZWc1NDFTTEY4TzgxYTBJZjRJcVk3RWpFS0pQeXJ1MEpNSUJ3cVliVVQ4T0VhWXFMbw==
+    network: tcp
+    #tls: true
+
+  
+
+  #==============================（hysteria2证书节点）
+  - name:  🇺🇸歇斯底里1                            #可自定义名称
+    type: hysteria2 
+    server: xui.oortaka.top                            #解析的域名
+    port: 49088                                        #自定义的端口
+    password: 93757c7d-ee66-4be9-ac6b-78e848847d62                                   #自定义的密码
+    alpn:
+      - h3
+    sni: xui.oortaka.top                               #sni域名，与上面server地址一致 
+    skip-cert-verify: false
+    fast-open: true
+
+  #==============================（hysteria2自签节点）
+  - name: 歇斯底里2                             #可自定义名称
+    type: hysteria2                                      
+    server: 142.171.12.11                                     #服务器本地IP
+    port: 8443                                         #自定义的端口
+    #  up和down均不写或为0则使用BBR流控
+    up: "30 Mbps" # 若不写单位，默认为 Mbps
+    down: "200 Mbps" # 若不写单位，默认为 Mbps
+    password: 39794157288d66b2                                    #自定义的密码
+    alpn:
+      - h3
+    sni: www.bing.com                                    #自签证书
+    skip-cert-verify: true
+    fast-open: true
+      
+  
  
  
  
@@ -198,16 +459,31 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
+      - 🇺🇸X-UI美国05
       - 🇺🇸洛杉矶(明年8月) 
       - 🇺🇸洛杉矶备用(明年7月)
       - 🇺🇸洛杉矶备用2
       - 论坛英国  
+      -  🇺🇸歇斯底里1
+      -  🇺🇳自动优选                                         
+      -  🇰🇷韩国
+      -  🇸🇬新加坡
+      -  🇳🇱荷兰
+      -  🇨🇦加拿大
+      -  🇮🇱以色列
+      -  🇩🇪德国                                  #自定义添加协议的name字段
+      - 🇺🇸X-UI美国01                           
+      - 🇺🇸X-UI美国02
+      - 🇺🇸X-UI美国04
+      - 🇺🇸X-UI美国07
+      - 🇺🇸X-UI美国08
+      - 🇺🇸X-UI美国10
+      - 🇺🇸X-UI美国11
       - DIRECT
     
       
 # 如果想自动选择就把url-test改为select
-    use: 
-      - 机0      
+    use:   
       - 机1
       - 机4
       - 机3
