@@ -569,7 +569,18 @@ rules:
   - DOMAIN-KEYWORD,google,中继
   - GEOSITE,CN,国内
   - DOMAIN-KEYWORD,yaohuo,百度直连-广州电信
-  - DOMAIN-KEYWORD,img.ink,百度直连-广州电信
+  - DOMAIN-KEYWORD,img.ink,百度直连-南京电信1
+  - DOMAIN-KEYWORD,bilibili,百度直连-苏州电信
+  - DOMAIN-SUFFIX,bilibili.com,百度直连-苏州电信
+  - DOMAIN,bilibili.com,百度直连-苏州电信
+  - DOMAIN-SUFFIX,biliapi.com,百度直连-苏州电信
+  - DOMAIN-SUFFIX,biliapi.net,百度直连-苏州电信
+  - DOMAIN-SUFFIX,bilibili.com,百度直连-苏州电信
+  - DOMAIN-SUFFIX,bilibili.tv,百度直连-苏州电信
+  - DOMAIN-SUFFIX,biligame.com,百度直连-苏州电信
+  - DOMAIN-SUFFIX,biligame.net,百度直连-苏州电信
+  - DOMAIN-SUFFIX,bilivideo.cn,百度直连-苏州电信
+  - DOMAIN-SUFFIX,bilivideo.com,百度直连-苏州电信
   - MATCH,中继
  
  
