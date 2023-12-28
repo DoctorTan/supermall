@@ -567,6 +567,7 @@ rules:
   # - DOMAIN-KEYWORD,ad,拦截
   # 分流规则
   - DOMAIN-KEYWORD,google,中继
+  - DOMAIN-KEYWORD,yaohuo,百度直连-广州电信
   - GEOSITE,CN,国内
   - MATCH,中继
  
