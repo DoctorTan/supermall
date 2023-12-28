@@ -568,7 +568,7 @@ rules:
   # 分流规则
   - DOMAIN-KEYWORD,google,中继
   - GEOSITE,CN,国内
-  - DOMAIN-SUFFIX,img.ink,百度直连-广州电信
+  - DOMAIN-SUFFIX,img.ink,百度直连-苏州电信
   - DOMAIN-SUFFIX,yaohuo.me,百度直连-广州电信
   - DOMAIN-KEYWORD,yaohuo,百度直连-广州电信
   - MATCH,中继
