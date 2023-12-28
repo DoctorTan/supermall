@@ -447,10 +447,21 @@ proxies:
     skip-cert-verify: true
     fast-open: true
       
-  
- 
- 
- 
+  - {name: 🇩🇪 德国, server: 2667v2.mc5173.cn, port: 20600, client-fingerprint: chrome, type: vmess, uuid: 639948ec-a536-4b9a-ddec-c74cd0e89d7f, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: 2667v2.mc5173.cn}}}
+  - { name: '[Hy2]香港1', server: vga-21.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]香港2', server: vga-21.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]香港3', server: vga-21.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]香港4', server: vga-21.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]日本1', server: jp-01.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]日本2', server: jp-01.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]日本3', server: jp-01.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]日本4', server: jp-01.cococloud.online, port: 8082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[ss]美国1', type: ss, server: ifree.cococloud.online, port: 42101, cipher: aes-128-gcm, password: f133440e-7696-4012-8f4f-96194ab0eec5, udp: true }
+  - { name: '[ss]美国2', type: ss, server: ifree.cococloud.online, port: 42102, cipher: aes-128-gcm, password: f133440e-7696-4012-8f4f-96194ab0eec5, udp: true }
+  - { name: '[Hy2]香港1 HKT家宽', server: hk-01.cococloud.online, port: 58082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]香港2 HKT家宽', server: hk-01.cococloud.online, port: 58082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]香港3 HKT家宽', server: hk-01.cococloud.online, port: 58082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
+  - { name: '[Hy2]香港4 HKT家宽', server: hk-01.cococloud.online, port: 58082, up: 500, down: 500, skip-cert-verify: false, type: hysteria2, password: f133440e-7696-4012-8f4f-96194ab0eec5 }
 
 
 
@@ -463,9 +474,23 @@ proxy-groups:
       - 🇺🇸洛杉矶(明年8月) 
       - 🇺🇸洛杉矶备用(明年7月)
       - 🇺🇸洛杉矶备用2
-      - 论坛英国  
+      - 🇩🇪 德国
       -  🇺🇸歇斯底里1
-      -  🇺🇳自动优选                                         
+      -  🇺🇳自动优选  
+      - '[Hy2]香港1'
+      - '[Hy2]香港2'
+      - '[Hy2]香港3'
+      - '[Hy2]香港4'
+      - '[Hy2]日本1'
+      - '[Hy2]日本2'
+      - '[Hy2]日本3'
+      - '[Hy2]日本4'
+      - '[Hy2]香港1 HKT家宽'
+      - '[Hy2]香港2 HKT家宽'
+      - '[Hy2]香港3 HKT家宽'
+      - '[Hy2]香港4 HKT家宽'
+      - '[ss]美国1'
+      - '[ss]美国2'                                       
       -  🇰🇷韩国
       -  🇸🇬新加坡
       -  🇳🇱荷兰
@@ -484,11 +509,14 @@ proxy-groups:
       
 # 如果想自动选择就把url-test改为select
     use:   
+      - 机0
       - 机1
-      - 机4
-      - 机3
       - 机2
+      - 机3
+      - 机4
       - 机5
+      # 海洋是2
+     
       
 
 # 多久测试一次最快的节点,单位为秒,不想频繁换ip就把下面的删掉
@@ -540,7 +568,6 @@ rules:
   # 分流规则
   - DOMAIN-KEYWORD,google,中继
   - GEOSITE,CN,国内
-  - GEOIP,CN,国内
   - MATCH,中继
  
  
