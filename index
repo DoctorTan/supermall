@@ -219,8 +219,13 @@ proxy-groups:
  
  
   - name: tg
-    type: select 
-    
+    type: select     
+    proxies:
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+    use:   
+      - 机1
+  - name: pikpak
+    type: select     
     proxies:
       ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
     use:   
@@ -292,6 +297,13 @@ rule-providers:
     path: ./ruleset/blbl.yaml
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
     interval: 86400
+  pikpak:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/pp.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
+    interval: 86400
 
   # openAi:
   #   type: http
@@ -336,6 +348,7 @@ rules:
   - RULE-SET,YouTube,油管
   - RULE-SET,tg,tg
   - RULE-SET,bl,b站
+  - RULE-SET,pikpak,pikpak
   # - RULE-SET,openAi,openAi
   - RULE-SET,大陆,国内
   # - RULE-SET,github,github
