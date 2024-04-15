@@ -34,6 +34,16 @@ proxy-providers:
       enable: true
       interval: 7200
       url: http://www.gstatic.com/generate_204
+  机2:
+    type: http
+   # 仅仅需要改url替换成你的订阅地址,其他不要改
+    url: https://dy.tgmini.top/api/v1/client/subscribe?token=3e6c269d087a28e7591639349dd16515
+    interval: 14400
+    path: ./provider202.yaml
+    health-check:
+      enable: true
+      interval: 7200
+      url: http://www.gstatic.com/generate_204
  
 
 # 百度配置文件
@@ -170,18 +180,23 @@ proxies:
   - {name: glassdoor, server: www.glassdoor.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
   - {name: whoer, server: www.whoer.net, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
   - {name: visahk, server: www.visa.com.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
+  - {name: 美国, server: 1008668.xyz, port: 2052, client-fingerprint: chrome, type: vmess, uuid: 4486a134-b497-4251-b868-8072197d1890, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: 1008668.xyz}}}
+  - {name: 香港, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: hkipv6.xlb8.eu.org}}}
+  - {name: 台湾, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: tw.xlb8.eu.org}}}
+  - {name: 德国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: dev6.xlb8.eu.org}}}
+  - {name: 英国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: uk.xlb8.eu.org}}}
 proxy-groups:
-
 #添加代理策略组
 
 # 节点群组，节点和订阅的名称配置到下面
   - name: 国外
     type: select
     proxies:
-      [ 'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡','洛杉矶hysteria2','洛杉矶Vmess',DIRECT]
+      ['香港','台湾','德国','英国','美国','洛杉矶hysteria2','洛杉矶Vmess','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
       # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
     use:   
       - 机1
+      - 机2
       
 # 如果想🚀自动选择就把url-test改为select   
      
@@ -202,43 +217,43 @@ proxy-groups:
       - 😊河北联通
       - 😊北京电信
 
-  # - name: b站
-  #   type: select 
-  #   proxies:
-  #     ['国内','国外',DIRECT,'洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #     #  '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]   
+  - name: b站
+    type: select 
+    proxies:
+      ['国内','国外',DIRECT,'洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      #  '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]   
 
-  # - name: 油管
-  #   type: select 
-  #   proxies:
-  #     ['国外','洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #     # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
-  #   use:   
-  #     - 机1    
+  - name: 油管
+    type: select 
+    proxies:
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
+    use:   
+      - 机1    
  
  
  
-  # - name: tg
-  #   type: select     
-  #   proxies:
-  #     ['国外','洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #   use:   
-  #     - 机1
-  # - name: pikpak
-  #   type: select     
-  #   proxies:
-  #     ['国外','洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #   use:   
-  #     - 机1
+  - name: tg
+    type: select     
+    proxies:
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+    use:   
+      - 机1
+  - name: pikpak
+    type: select     
+    proxies:
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+    use:   
+      - 机1
 
-  # - name: "🚀自动选择"
-  #   type: url-test
-  #   proxies:
-  #     ['洛杉矶Vmess','洛杉矶hysteria2' , 'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #   use:   
-  #     - 机1
-  #   url: 'https://www.gstatic.com/generate_204'
-  #   interval: 300
+  - name: "🚀自动选择"
+    type: url-test
+    proxies:
+      ['洛杉矶Vmess','洛杉矶hysteria2' , 'csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+    use:   
+      - 机1
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
     
  
 
@@ -247,25 +262,25 @@ proxy-groups:
     proxies:
       - 国内
       - 国外
-  # - name: 负载均衡-散列
-  #   type: load-balance
-  #   url: http://www.google.com/generate_204
-  #   interval: 300
-  #   strategy: consistent-hashing
-  #   proxies:
-  #     ['洛杉矶Vmess','洛杉矶hysteria2','csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #   use:   
-  #     - 机1
+  - name: 负载均衡-散列
+    type: load-balance
+    url: http://www.google.com/generate_204
+    interval: 300
+    strategy: consistent-hashing
+    proxies:
+      ['洛杉矶Vmess','洛杉矶hysteria2','csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+    use:   
+      - 机1
 
-  # - name: 负载均衡-轮询
-  #   type: load-balance
-  #   url: http://www.google.com/generate_204
-  #   interval: 300
-  #   strategy: round-robin
-  #   proxies:
-  #     ['洛杉矶Vmess','洛杉矶hysteria2','csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
-  #   use:   
-  #     - 机1
+  - name: 负载均衡-轮询
+    type: load-balance
+    url: http://www.google.com/generate_204
+    interval: 300
+    strategy: round-robin
+    proxies:
+      ['洛杉矶Vmess','洛杉矶hysteria2','csgo','visahk','glassdoor','whoer','新加坡cf','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+    use:   
+      - 机1
 
 rule-providers:
   reject:
@@ -275,35 +290,35 @@ rule-providers:
     path: ./ruleset/reject.yaml
     interval: 86400
 
-  # YouTube:
-  #   type: http
-  #   behavior: classical
-  #   format: yaml
-  #   path: ./ruleset/youtube.yaml
-  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
-  #   interval: 86400
-  # tg:
-  #   type: http
-  #   behavior: classical
-  #   format: yaml
-  #   path: ./ruleset/tg.yaml
-  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
-  #   interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/youtube.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+    interval: 86400
+  tg:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/tg.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
+    interval: 86400
  
-  # bl:
-  #   type: http
-  #   behavior: classical
-  #   format: yaml
-  #   path: ./ruleset/blbl.yaml
-  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
-  #   interval: 86400
-  # pikpak:
-  #   type: http
-  #   behavior: classical
-  #   format: yaml
-  #   path: ./ruleset/pp.yaml
-  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
-  #   interval: 86400
+  bl:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/blbl.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    interval: 86400
+  pikpak:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/pp.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
+    interval: 86400
 
   # openAi:
   #   type: http
@@ -345,10 +360,10 @@ rules:
   # UDP 规则 
   - AND,((NETWORK,UDP)),REJECT
   # 广告过滤 
-  # - RULE-SET,YouTube,油管
-  # - RULE-SET,tg,tg
-  # - RULE-SET,bl,b站
-  # - RULE-SET,pikpak,pikpak
+  - RULE-SET,YouTube,油管
+  - RULE-SET,tg,tg
+  - RULE-SET,bl,b站
+  - RULE-SET,pikpak,pikpak
   # - RULE-SET,openAi,openAi
   - RULE-SET,大陆,国内
   # - RULE-SET,github,github
