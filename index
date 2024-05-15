@@ -131,7 +131,7 @@ proxies:
         Host: arrive-blake-leu-liberal.trycloudflare.com
 
 
-  - name:                             #可自定义名称
+  - name:  🇺🇳自动优选                           #可自定义名称
     type: vless
     server: japan.com                          #解析的域名或者优选域名IP
     port: 2096                                      #自定义的端口
