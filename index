@@ -102,7 +102,7 @@ proxies:
   #   down: "200 Mbps" # 若不写单位，默认为 Mbps
   - name: 洛杉矶hysteria2
     type: hysteria2
-    server: 142.171.45.251
+    server: 142.171.45.2511
     port: 8443
     #  up和down均不写或为0则使用BBR流控
     # up: "30 Mbps" # 若不写单位，默认为 Mbps
@@ -131,7 +131,7 @@ proxies:
         Host: arrive-blake-leu-liberal.trycloudflare.com
 
 
-  - name:  🇺🇳自动优选                           #可自定义名称
+  - name:                             #可自定义名称
     type: vless
     server: japan.com                          #解析的域名或者优选域名IP
     port: 2096                                      #自定义的端口
@@ -172,7 +172,9 @@ proxies:
   - {name: 韩国cf1, server: 162.159.192.0, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
  
   - {name: 迪拜cf, server: 139.185.34.131, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
-  
+  - {name: 流量1, server: visa.com, port: 80, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
+  - {name: 流量2, server: 3-gy.top, port: 443, client-fingerprint: chrome, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, servername: a.bisaeksporbatam.eu.org, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
+  - {name: 流量3, server: www.shopify.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
  
   
 ################################################################
@@ -181,10 +183,10 @@ proxies:
   - {name: whoer, server: www.whoer.net, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
   - {name: visahk, server: www.visa.com.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
   - {name: 美国, server: 1008668.xyz, port: 2052, client-fingerprint: chrome, type: vmess, uuid: 4486a134-b497-4251-b868-8072197d1890, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: 1008668.xyz}}}
-  - {name: 香港, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: hkipv6.xlb8.eu.org}}}
-  - {name: 台湾, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: tw.xlb8.eu.org}}}
+  # - {name: 香港, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: hkipv6.xlb8.eu.org}}}
+  # - {name: 台湾, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: tw.xlb8.eu.org}}}
   - {name: 德国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: dev6.xlb8.eu.org}}}
-  - {name: 英国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: uk.xlb8.eu.org}}}
+  # - {name: 英国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: uk.xlb8.eu.org}}}
 proxy-groups:
 #添加代理策略组
 
@@ -192,11 +194,11 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      ['visahk','洛杉矶hysteria2','glassdoor','whoer','香港','台湾','德国','英国','美国','洛杉矶Vmess','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'sb', '韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['visahk','洛杉矶hysteria2','洛杉矶Vmess','流量1','流量2','流量3','glassdoor','whoer','德国','美国','洛杉矶Vmess','🚀自动选择',DIRECT,'sb', '🇸🇬新加坡']
       # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
     use:   
-      - 机1
-      - 机2
+      # - 机1
+      # - 机2
       
 # 如果想🚀自动选择就把url-test改为select   
      
@@ -220,38 +222,38 @@ proxy-groups:
   - name: b站
     type: select 
     proxies:
-      ['国内','国外',DIRECT,'洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['国内','国外',DIRECT,'洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
       #  '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]   
 
   - name: 油管
     type: select 
     proxies:
-      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
       # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
     use:   
-      - 机1    
+      # - 机1    
  
  
  
   - name: tg
     type: select     
     proxies:
-      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
     use:   
-      - 机1
+      # - 机1
   - name: pikpak
     type: select     
     proxies:
-      ['国外','洛杉矶Vmess','洛杉矶hysteria2','负载均衡-轮询','负载均衡-散列','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['国外','洛杉矶Vmess','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
     use:   
-      - 机1
+      # - 机1
 
   - name: "🚀自动选择"
     type: url-test
     proxies:
-      ['洛杉矶Vmess','洛杉矶hysteria2' , 'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['洛杉矶Vmess','洛杉矶hysteria2' , 'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
     use:   
-      - 机1
+      # - 机1
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
     
@@ -268,9 +270,9 @@ proxy-groups:
     interval: 300
     strategy: consistent-hashing
     proxies:
-      ['洛杉矶Vmess','洛杉矶hysteria2','sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['洛杉矶Vmess','洛杉矶hysteria2','sb','visahk','glassdoor','whoer','🇸🇬新加坡']
     use:   
-      - 机1
+      # - 机1
 
   - name: 负载均衡-轮询
     type: load-balance
@@ -278,9 +280,9 @@ proxy-groups:
     interval: 300
     strategy: round-robin
     proxies:
-      ['洛杉矶Vmess','洛杉矶hysteria2','sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选','🇸🇬新加坡']
+      ['洛杉矶Vmess','洛杉矶hysteria2','sb','visahk','glassdoor','whoer','🇸🇬新加坡']
     use:   
-      - 机1
+      # - 机1
 
 rule-providers:
   reject:
