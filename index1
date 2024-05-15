@@ -186,7 +186,7 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      ['shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择',DIRECT,'sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+      ['shopify','visahk','udemy','malaysia','singapore','icookhk','glassdoor','whoer','香港','台湾','英国','🚀自动选择','sb', '韩国cf1','迪拜cf','🇺🇳自动优选','洛杉矶hysteria2','流量1','流量2','流量3',]
     
     use:   
       - 机1
@@ -214,13 +214,13 @@ proxy-groups:
   - name: b站
     type: select 
     proxies:
-      ['国内','国外',DIRECT,'洛杉矶hysteria2',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
-  
+      [DIRECT,'国内','国外','洛杉矶hysteria2','shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+ 
 
   - name: 油管
     type: select 
     proxies:
-      ['国外','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+       ['国外','洛杉矶hysteria2', 'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
   
     use:   
       - 机1    
@@ -230,20 +230,20 @@ proxy-groups:
   - name: tg
     type: select     
     proxies:
-      ['国外','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+       ['国外','洛杉矶hysteria2' ,'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
     use:   
       - 机1
   - name: pikpak
     type: select     
     proxies:
-      ['国外','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+       ['国外','洛杉矶hysteria2', 'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
     use:   
       - 机1
 
   - name: "🚀自动选择"
     type: url-test
     proxies:
-      ['洛杉矶hysteria2' , 'sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+       ['shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
     use:   
       - 机1
     url: 'https://www.gstatic.com/generate_204'
