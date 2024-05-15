@@ -167,6 +167,11 @@ proxies:
   - {name: glassdoor, server: www.glassdoor.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
   - {name: whoer, server: www.whoer.net, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
   - {name: visahk, server: www.visa.com.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: icookhk, server: icook.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: singapore, server: singapore.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: malaysia, server: malaysia.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: shopify, server: www.shopify.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: udemy, server: www.udemy.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
   
   - {name: 香港, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: hkipv6.xlb8.eu.org}}}
   - {name: 台湾, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: tw.xlb8.eu.org}}}
@@ -181,7 +186,7 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      ['visahk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择',DIRECT,'sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+      ['shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','🚀自动选择',DIRECT,'sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
     
     use:   
       - 机1
