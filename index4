@@ -1,0 +1,411 @@
+# 混合代理端口 http(s)+socks
+# mixed-port: 7890
+# allow-lan: true   #允许局域网连接
+bind-address: "*"
+mode: rule
+geodata-mode: true
+log-level: info
+ipv6: false
+socks-port: 1080
+# 其他部分别动，只需根据自己运营商修改百度IP
+# DNS配置
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  default-nameserver:
+    - https://223.6.6.6/dns-query
+    - https://1.1.1.1/dns-query
+  nameserver:
+    - https://223.6.6.6/dns-query
+    - https://1.1.1.1/dns-query
+
+# 机场订阅地址
+proxy-providers:
+  # 机1:
+  #   type: http
+  #  # 仅仅需要改url替换成你的订阅地址,其他不要改
+  #   url: https://isski-jc.yydsig.buzz/api/v1/client/subscribe?token=64312aba8cfbaa38db51f526ad2a2ee8
+  #   interval: 14400
+  #   path: ./provider202.yaml
+  #   health-check:
+  #     enable: true
+  #     interval: 7200
+  #     url: http://www.gstatic.com/generate_204
+  # 机2:
+  #   type: http
+  #  # 仅仅需要改url替换成你的订阅地址,其他不要改
+  #   url: https://dy.tgmini.top/api/v1/client/subscribe?token=3e6c269d087a28e7591639349dd16515
+  #   interval: 14400
+  #   path: ./provider202.yaml
+  #   health-check:
+  #     enable: true
+  #     interval: 7200
+  #     url: http://www.gstatic.com/generate_204
+ 
+
+# 百度配置文件
+baidu: &baidu
+  type: http
+  port: 443
+  headers:
+    Host: "sptest.baidu.com"
+    X-T5-Auth: "482857715"
+    User-Agent: "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Build/RP1A.200720.011) baiduboxapp/13.10.0.10 (Baidu; P1 11)"
+
+
+proxies:
+# 解析地址 https://site.ip138.com/cloudnproxy.n.shifen.com/
+  - name: "😊广州电信"
+    server: 14.215.182.75
+    <<: *baidu
+
+  - name: "😊南京电信1"
+    server: 180.101.50.208
+    <<: *baidu
+    
+  - name: "😊南京电信2"
+    server: 180.101.50.249
+    <<: *baidu
+
+  - name: "😊北京电信"
+    server: 220.181.111.189
+    <<: *baidu
+    
+  - name: "😊苏州电信"
+    server: 180.97.93.202
+    <<: *baidu
+
+  - name: "😊河北联通"
+    server: 110.242.70.69
+    <<: *baidu
+    
+  - name: "😊苏州联通"
+    server: 157.0.148.53
+    <<: *baidu
+
+  - name: "😊南京联通"
+    server: 153.3.237.117
+    <<: *baidu
+ 
+
+  # - name: 🇺🇸洛杉矶(明年8月)
+  #   type: hysteria2
+  #   server: 142.171.45.251
+  #   port: 4333
+  #   sni: tanx.space
+  #   skip-cert-verify: true
+  #   password: 1234567
+  #   up: "30 Mbps" # 若不写单位，默认为 Mbps
+  #   down: "200 Mbps" # 若不写单位，默认为 Mbps
+  - name: 洛杉矶hysteria2
+    type: hysteria2
+    server: 142.171.45.251
+    port: 8443
+    #  up和down均不写或为0则使用BBR流控
+    # up: "30 Mbps" # 若不写单位，默认为 Mbps
+    # down: "200 Mbps" # 若不写单位，默认为 Mbps
+    password: b7f43c8b717c6bd9
+    sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+  - name: 洛杉矶Vmess
+    type: vmess
+    server: speed.cloudflare.com
+    port: 443
+    uuid: b0ee4546-912a-413b-ae8a-05520e0484f3
+    alterId: 0
+    cipher: auto
+    udp: true
+    tls: true
+    client-fingerprint: chrome  
+    skip-cert-verify: true
+    servername: arrive-blake-leu-liberal.trycloudflare.com
+    network: ws
+    ws-opts:
+      path: 5223a88dfe09
+      headers:
+        Host: arrive-blake-leu-liberal.trycloudflare.com
+
+
+  - name:  🇺🇳自动优选                           #可自定义名称
+    type: vless
+    server: japan.com                          #解析的域名或者优选域名IP
+    port: 2096                                      #自定义的端口
+    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
+    udp: true
+    tls: true
+    network: ws
+    servername: cf.oortaka.top                     #sni域名，与下面的host一致
+    ws-opts:
+      path: "/?ed=2048"                              #" "内自定义的path路径
+      headers:
+        Host: cf.oortaka.top                       #host域名，与上面的servername一致
+ 
+
+  #==============================（vless-reality-grpc节点）
+ 
+
+                  #host域名，与上面的servername一致
+ 
+ 
+
+                     #host域名，与上面的servername一致
+
+                     #host域名，与上面的servername一致
+  - {name: 韩国cf1, server: 162.159.192.0, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
+ 
+  - {name: 迪拜cf, server: 139.185.34.131, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
+  
+ 
+  
+################################################################
+  - {name: sb, server: ip.sb, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: glassdoor, server: www.glassdoor.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: whoer, server: www.whoer.net, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: visahk, server: www.visa.com.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: icookhk, server: icook.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: singapore, server: singapore.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: malaysia, server: malaysia.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: shopify, server: www.shopify.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: udemy, server: www.udemy.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  
+  - {name: 香港, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: hkipv6.xlb8.eu.org}}}
+  - {name: 台湾, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: tw.xlb8.eu.org}}}
+  - {name: 流量1, server: visa.com, port: 80, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
+  - {name: 流量2, server: 3-gy.top, port: 443, client-fingerprint: chrome, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, servername: a.bisaeksporbatam.eu.org, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
+  - {name: 流量3, server: www.shopify.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
+  - {name: 英国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: uk.xlb8.eu.org}}}
+proxy-groups:
+#添加代理策略组
+
+# 节点群组，节点和订阅的名称配置到下面
+  - name: 国外
+    type: select
+    proxies:
+      ['shopify','visahk','udemy','malaysia','singapore','icookhk','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选','洛杉矶hysteria2','流量1','流量2','流量3',]
+    
+    use:   
+      # - 机1
+      # - 机2
+      
+# 如果想🚀自动选择就把url-test改为select   
+     
+      
+
+# 多久测试一次最快的节点,单位为秒,不想频繁换ip就把下面的删掉
+    interval: 3000
+  - name: 国内
+    type: select 
+    proxies:
+      - DIRECT
+      - 😊广州电信
+      - 😊南京电信1
+      - 😊南京电信2
+      - 😊南京联通
+      - 😊苏州电信
+      - 😊苏州联通
+      - 😊河北联通
+      - 😊北京电信
+
+  - name: b站
+    type: select 
+    proxies:
+      ['国内','国外','洛杉矶hysteria2','shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+ 
+  - name: openAi
+    type: select 
+    proxies:
+      ['洛杉矶hysteria2','国外','shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+ 
+ 
+
+  # - name: 油管
+  #   type: select 
+  #   proxies:
+  #      ['国外','洛杉矶hysteria2', 'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  
+  #   use:   
+      # - 机1    
+ 
+ 
+ 
+  - name: tg
+    type: select     
+    proxies:
+       ['国外','洛杉矶hysteria2' ,'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+    use:   
+      # - 机1
+  # - name: pikpak
+  #   type: select     
+  #   proxies:
+  #      ['国外','洛杉矶hysteria2', 'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
+
+  # - name: "🚀自动选择"
+  #   type: url-test
+  #   proxies:
+  #      ['shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
+  #   url: 'https://www.gstatic.com/generate_204'
+  #   interval: 300
+    
+ 
+
+  - name: 中继
+    type: relay
+    proxies:
+      - 国内
+      - 国外
+  # - name: 负载均衡-散列
+  #   type: load-balance
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #   strategy: consistent-hashing
+  #   proxies:
+  #     ['洛杉矶hysteria2','sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
+
+  # - name: 负载均衡-轮询
+  #   type: load-balance
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #   strategy: round-robin
+  #   proxies:
+  #     ['洛杉矶hysteria2','sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  # YouTube:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/youtube.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+  #   interval: 86400
+  tg:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/tg.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
+    interval: 86400
+ 
+  bl:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/blbl.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    interval: 86400
+  # pikpak:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/pp.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
+  #   interval: 86400
+
+  openAi:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/openai.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml"
+    interval: 86400
+
+  # ad:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/ad.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml"
+  #   interval: 86400
+
+  大陆:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./ruleset/dl.yaml
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
+    interval: 86400
+
+  # github:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/github.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml"
+  #   interval: 86400
+ 
+
+rules:
+  - DOMAIN-KEYWORD,yaohuo.me,国内
+  - DOMAIN-KEYWORD,img.ink,国内
+  - DOMAIN-KEYWORD,freeok.pro,国内
+  # UDP 规则 
+  - AND,((NETWORK,UDP)),REJECT
+  # 广告过滤 
+  # - RULE-SET,YouTube,油管
+  - RULE-SET,tg,tg
+  - RULE-SET,bl,b站
+  - RULE-SET,bl,b站
+  # - RULE-SET,pikpak,pikpak
+  - RULE-SET,openAi,openAi
+  - RULE-SET,大陆,国内
+  # - RULE-SET,github,github
+  
+  # - RULE-SET,ad,REJECT
+ 
+    # 特殊域名放行
+
+  - DOMAIN-KEYWORD,announce,DIRECT
+  - DOMAIN-KEYWORD,torrent,DIRECT
+  - DOMAIN-KEYWORD,tracker,DIRECT
+  - DOMAIN-SUFFIX,smtp,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  # 目标本地地址放行
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+ 
+  # 分流规则
+  # - DOMAIN-KEYWORD,google,中继
+  # - GEOSITE,cn,国内
+ 
+
+ 
+  # - DOMAIN-KEYWORD,-cn,国内
+    # GEOSITE 强制直连国内机场
+  - GEOSITE,category-games@cn,国内 
+  # - GEOSITE,bilibili,国内 
+  - GEOSITE,douyu,国内 
+  - GEOSITE,huya,国内 
+  - GEOSITE,tencent,国内 
+  - GEOSITE,apple-cn,国内 
+  - GEOSITE,ehentai,国内 
+ 
+     # 兜底规则
+  # - GEOSITE,CN,国内 
+  # - GEOIP,CN,国内 
+ 
+  - GEOIP,!CN,中继  
+  - MATCH,中继
+ 
+ 
