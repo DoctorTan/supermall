@@ -24,26 +24,26 @@ dns:
 
 # 机场订阅地址
 proxy-providers:
-  机1:
-    type: http
-   # 仅仅需要改url替换成你的订阅地址,其他不要改
-    url: https://isski-jc.yydsig.buzz/api/v1/client/subscribe?token=64312aba8cfbaa38db51f526ad2a2ee8
-    interval: 14400
-    path: ./provider202.yaml
-    health-check:
-      enable: true
-      interval: 7200
-      url: http://www.gstatic.com/generate_204
-  机2:
-    type: http
-   # 仅仅需要改url替换成你的订阅地址,其他不要改
-    url: https://dy.tgmini.top/api/v1/client/subscribe?token=3e6c269d087a28e7591639349dd16515
-    interval: 14400
-    path: ./provider202.yaml
-    health-check:
-      enable: true
-      interval: 7200
-      url: http://www.gstatic.com/generate_204
+  # 机1:
+  #   type: http
+  #  # 仅仅需要改url替换成你的订阅地址,其他不要改
+  #   url: https://isski-jc.yydsig.buzz/api/v1/client/subscribe?token=64312aba8cfbaa38db51f526ad2a2ee8
+  #   interval: 14400
+  #   path: ./provider202.yaml
+  #   health-check:
+  #     enable: true
+  #     interval: 7200
+  #     url: http://www.gstatic.com/generate_204
+  # 机2:
+  #   type: http
+  #  # 仅仅需要改url替换成你的订阅地址,其他不要改
+  #   url: https://dy.tgmini.top/api/v1/client/subscribe?token=3e6c269d087a28e7591639349dd16515
+  #   interval: 14400
+  #   path: ./provider202.yaml
+  #   health-check:
+  #     enable: true
+  #     interval: 7200
+  #     url: http://www.gstatic.com/generate_204
  
 
 # 百度配置文件
@@ -90,45 +90,16 @@ proxies:
     server: 153.3.237.117
     <<: *baidu
  
-
-  # - name: 🇺🇸洛杉矶(明年8月)
-  #   type: hysteria2
-  #   server: 142.171.45.251
-  #   port: 4333
-  #   sni: tanx.space
-  #   skip-cert-verify: true
-  #   password: 1234567
-  #   up: "30 Mbps" # 若不写单位，默认为 Mbps
-  #   down: "200 Mbps" # 若不写单位，默认为 Mbps
   - name: 洛杉矶hysteria2
     type: hysteria2
-    server: 142.171.45.2511
+    server: 142.171.45.251
     port: 8443
-    #  up和down均不写或为0则使用BBR流控
-    # up: "30 Mbps" # 若不写单位，默认为 Mbps
-    # down: "200 Mbps" # 若不写单位，默认为 Mbps
     password: b7f43c8b717c6bd9
     sni: bing.com
     skip-cert-verify: true
     alpn:
       - h3
-  - name: 洛杉矶Vmess
-    type: vmess
-    server: speed.cloudflare.com
-    port: 443
-    uuid: b0ee4546-912a-413b-ae8a-05520e0484f3
-    alterId: 0
-    cipher: auto
-    udp: true
-    tls: true
-    client-fingerprint: chrome  
-    skip-cert-verify: true
-    servername: arrive-blake-leu-liberal.trycloudflare.com
-    network: ws
-    ws-opts:
-      path: 5223a88dfe09
-      headers:
-        Host: arrive-blake-leu-liberal.trycloudflare.com
+ 
 
 
   - name:  🇺🇳自动优选                           #可自定义名称
@@ -144,49 +115,28 @@ proxies:
       path: "/?ed=2048"                              #" "内自定义的path路径
       headers:
         Host: cf.oortaka.top                       #host域名，与上面的servername一致
- 
+#  vless://d342d11e-d424-4583-b36e-524ab1f0afa4@cdn.didi8.com:80?encryption=none&security=none&sni=20240705.tanyupeng528.workers.dev&fp=randomized&type=ws&host=20240705.tanyupeng528.workers.dev&path=%2F%3Fed%3D2048#20240705.tanyupeng528.workers.dev
 
-  #==============================（vless-reality-grpc节点）
+  - {name: didi8, server: cdn.didi8.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d342d11e-d424-4583-b36e-524ab1f0afa4, tls: false, tfo: false, skip-cert-verify: false, servername: 20240705.tanworker.workers.dev, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: 20240705.tanworker.workers.dev}}}
  
-
-                  #host域名，与上面的servername一致
- 
- 
-
-  #==============================（vless-ws-tls节点）
-  - name:  🇸🇬新加坡                           #可自定义名称
-    type: vless
-    server: 158.178.242.56                          #解析的域名或者优选域名IP
-    port: 2083                                      #自定义的端口
-    uuid: 8035bc9e-5a5e-4523-b4d8-5a5111a98359       #自定义的uuid
-    udp: true
-    tls: true
-    network: ws
-    servername: cf.oortaka.top                     #sni域名，与下面的host一致
-    ws-opts:
-      path: "/?ed=2048"                              #" "内自定义的path路径
-      headers:
-        Host: cf.oortaka.top                       #host域名，与上面的servername一致
-
-                     #host域名，与上面的servername一致
   - {name: 韩国cf1, server: 162.159.192.0, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
  
-  - {name: 迪拜cf, server: 139.185.34.131, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
-  - {name: 流量1, server: visa.com, port: 80, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
-  - {name: 流量2, server: 3-gy.top, port: 443, client-fingerprint: chrome, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: true, tfo: false, skip-cert-verify: false, servername: a.bisaeksporbatam.eu.org, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
-  - {name: 流量3, server: www.shopify.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: df28c5eb-4b45-4755-8edd-fbb3894db392, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /df28c5eb, headers: {Host: a.bisaeksporbatam.eu.org}}}
- 
+  
+  
+  - {name: 新加坡cf, server: 8.209.115.254, port: 443, client-fingerprint: randomized, type: vless, uuid: 23802024-2482-4279-94c9-f29b0dacd07b, tls: true, tfo: false, skip-cert-verify: false, servername: youxuan.tanspace.top, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: youxuan.tanspace.top}}}
   
 ################################################################
-  - {name: sb, server: ip.sb, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
-  - {name: glassdoor, server: www.glassdoor.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
-  - {name: whoer, server: www.whoer.net, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
-  - {name: visahk, server: www.visa.com.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect.438749168.workers.dev}}}
-  - {name: 美国, server: 1008668.xyz, port: 2052, client-fingerprint: chrome, type: vmess, uuid: 4486a134-b497-4251-b868-8072197d1890, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: 1008668.xyz}}}
-  # - {name: 香港, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: hkipv6.xlb8.eu.org}}}
-  # - {name: 台湾, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: tw.xlb8.eu.org}}}
-  - {name: 德国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: dev6.xlb8.eu.org}}}
-  # - {name: 英国, server: visa.com, port: 80, client-fingerprint: chrome, type: vmess, uuid: 61b81abc-320b-49c1-893c-f3ddd45880de, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: uk.xlb8.eu.org}}}
+  - {name: sb, server: ip.sb, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: glassdoor, server: www.glassdoor.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: whoer, server: www.whoer.net, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: visahk, server: www.visa.com.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: icookhk, server: icook.hk, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: singapore, server: singapore.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  
+  - {name: shopify, server: www.shopify.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  - {name: udemy, server: www.udemy.com, port: 80, client-fingerprint: randomized, type: vless, uuid: d0a9277f-4a23-44e2-84a0-a0d0149ca03f, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: "/?ed=2048", headers: {Host: bestselect1.438749168.workers.dev}}}
+  
+  
 proxy-groups:
 #添加代理策略组
 
@@ -194,8 +144,8 @@ proxy-groups:
   - name: 国外
     type: select
     proxies:
-      ['visahk','洛杉矶hysteria2','洛杉矶Vmess','流量1','流量2','流量3','glassdoor','whoer','德国','美国','洛杉矶Vmess','🚀自动选择',DIRECT,'sb', '🇸🇬新加坡']
-      # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
+      ['洛杉矶hysteria2','shopify','visahk','udemy','didi8','singapore','icookhk','glassdoor','whoer', 'sb', '韩国cf1', '🇺🇳自动优选']
+    
     use:   
       # - 机1
       # - 机2
@@ -222,67 +172,78 @@ proxy-groups:
   - name: b站
     type: select 
     proxies:
-      ['国内','国外',DIRECT,'洛杉矶Vmess','洛杉矶hysteria2',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-      #  '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]   
+        ['国内','国外','shopify','visahk','udemy','didi8', 'singapore','icookhk','glassdoor','whoer', 'sb', '韩国cf1', '🇺🇳自动优选','洛杉矶hysteria2' ]
+ 
+  # - name: openAi
+  #   type: select 
+  #   proxies:
+  #     ['洛杉矶hysteria2','国外','shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+ 
+ 
 
-  - name: 油管
-    type: select 
-    proxies:
-      ['国外','洛杉矶Vmess','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-      # , '美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6', 韩国, 印度, 澳大利亚, 土耳其, 以色列, 阿联酋, 沙特阿拉伯, 英国, 法国, 德国, 俄罗斯, 荷兰, 意大利, 瑞典, 瑞士, 西班牙, 加拿大, 墨西哥, 巴西, 智利, 阿根廷, 南非, 尼日利亚]
-    use:   
+  # - name: 油管
+  #   type: select 
+  #   proxies:
+  #      ['国外','洛杉矶hysteria2', 'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  
+  #   use:   
       # - 机1    
  
  
  
-  - name: tg
-    type: select     
-    proxies:
-      ['国外','洛杉矶Vmess','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-    use:   
+  # - name: pikpak
+  #   type: select     
+  #   proxies:
+  #      ['国外','洛杉矶hysteria2' ,'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  # - name: tg
+  #   type: select     
+  #   proxies:
+  #      ['国外','洛杉矶hysteria2' ,'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
       # - 机1
-  - name: pikpak
-    type: select     
-    proxies:
-      ['国外','洛杉矶Vmess','洛杉矶hysteria2','🚀自动选择',DIRECT,'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-    use:   
-      # - 机1
+  # - name: pikpak
+  #   type: select     
+  #   proxies:
+  #      ['国外','洛杉矶hysteria2', 'shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
 
-  - name: "🚀自动选择"
-    type: url-test
-    proxies:
-      ['洛杉矶Vmess','洛杉矶hysteria2' , 'sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-    use:   
-      # - 机1
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
+  # - name: "🚀自动选择"
+  #   type: url-test
+  #   proxies:
+  #      ['shopify','visahk','udemy','malaysia','singapore','icookhk','洛杉矶hysteria2','流量1','流量2','流量3','glassdoor','whoer','香港','台湾','英国','sb', '韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
+  #   url: 'https://www.gstatic.com/generate_204'
+  #   interval: 300
     
  
 
-  - name: 中继
-    type: relay
-    proxies:
-      - 国内
-      - 国外
-  - name: 负载均衡-散列
-    type: load-balance
-    url: http://www.google.com/generate_204
-    interval: 300
-    strategy: consistent-hashing
-    proxies:
-      ['洛杉矶Vmess','洛杉矶hysteria2','sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-    use:   
-      # - 机1
+  # - name: 中继
+  #   type: relay
+  #   proxies:
+  #     - 国内
+  #     - 国外
+  # - name: 负载均衡-散列
+  #   type: load-balance
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #   strategy: consistent-hashing
+  #   proxies:
+  #     ['洛杉矶hysteria2','sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
 
-  - name: 负载均衡-轮询
-    type: load-balance
-    url: http://www.google.com/generate_204
-    interval: 300
-    strategy: round-robin
-    proxies:
-      ['洛杉矶Vmess','洛杉矶hysteria2','sb','visahk','glassdoor','whoer','🇸🇬新加坡']
-    use:   
-      # - 机1
+  # - name: 负载均衡-轮询
+  #   type: load-balance
+  #   url: http://www.google.com/generate_204
+  #   interval: 300
+  #   strategy: round-robin
+  #   proxies:
+  #     ['洛杉矶hysteria2','sb','visahk','glassdoor','whoer','韩国cf1','迪拜cf','🇺🇳自动优选']
+  #   use:   
+  #     - 机1
 
 rule-providers:
   reject:
@@ -292,35 +253,35 @@ rule-providers:
     path: ./ruleset/reject.yaml
     interval: 86400
 
-  YouTube:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./ruleset/youtube.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
-    interval: 86400
-  tg:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./ruleset/tg.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
-    interval: 86400
+  # YouTube:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/youtube.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+  #   interval: 86400
+  # tg:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/tg.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
+  #   interval: 86400
  
-  bl:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./ruleset/blbl.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
-    interval: 86400
-  pikpak:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./ruleset/pp.yaml
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
-    interval: 86400
+  # bl:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/blbl.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+  #   interval: 86400
+  # pikpak:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/pp.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
+  #   interval: 86400
 
   # openAi:
   #   type: http
@@ -346,6 +307,14 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
     interval: 86400
 
+  # pikpak:
+  #   type: http
+  #   behavior: classical
+  #   format: yaml
+  #   path: ./ruleset/dl.yaml
+  #   url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PikPak/PikPak.yaml"
+  #   interval: 86400
+
   # github:
   #   type: http
   #   behavior: classical
@@ -362,10 +331,11 @@ rules:
   # UDP 规则 
   - AND,((NETWORK,UDP)),REJECT
   # 广告过滤 
-  - RULE-SET,YouTube,油管
-  - RULE-SET,tg,tg
-  - RULE-SET,bl,b站
-  - RULE-SET,pikpak,pikpak
+  # - RULE-SET,YouTube,油管
+  # - RULE-SET,tg,tg
+  # - RULE-SET,bl,b站
+  # - RULE-SET,bl,b站
+  # - RULE-SET,pikpak,pikpak
   # - RULE-SET,openAi,openAi
   - RULE-SET,大陆,国内
   # - RULE-SET,github,github
@@ -403,10 +373,10 @@ rules:
   - GEOSITE,ehentai,国内 
  
      # 兜底规则
-  # - GEOSITE,CN,国内 
+  - GEOSITE,CN,国内 
   # - GEOIP,CN,国内 
  
-  - GEOIP,!CN,中继  
-  - MATCH,中继
+  - GEOIP,!CN,国外  
+  # - MATCH,中继
  
  
